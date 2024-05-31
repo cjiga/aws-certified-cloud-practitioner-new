@@ -52,8 +52,24 @@ AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model, which
 - **Data transfer OUT of the cloud:** Data transfer IN is free
 
 ## AWS Cloud History 
-2002: Internally launched
-2003: Amazon infrastructure is one of their core strength. Idea to market
-2004: Launched publicly with SQS
-2006: Re-laucnhed publicly with SQS, S3 & EC2
-2007: Launched in Europe
+2002: Internally launched<br />
+2003: Amazon infrastructure is one of their core strength. Idea to market<br />
+2004: Launched publicly with SQS<br />
+2006: Re-laucnhed publicly with SQS, S3 & EC2<br />
+2007: Launched in Europe<br />
+
+## AWS Global Infrastructure
+###AWS Regions
+  **Compliance** With data governance and legal requirements: data never leaves a region without your explicit permission.<br />
+  **Proximity** to customers: Reduced latency.<br />
+  **Available** services within a Region: new services and new features aren't available in every Region.<br />
+  **Pricing**: pricing varis region to region and is transparent in the service pricing page
+  
+###AWS Availability Zones
+- Each region has many availability zones (usually 3, min is 3, max is 6).
+- Each availability zone (AZ) is one or more discrete data centers with redundant power, networking, and connectivity.
+- They're separate from each other, so that thery're isolated from disasters
+- They're connected with high bandwidth, ultra-low latency networking
+###AWS Data Centers
+###AWS Edge Locations/Points of Presence
+
