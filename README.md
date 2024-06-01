@@ -112,3 +112,14 @@ AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model, which
   - Resource: list of resources to which the actions applied to
   - Condition: conditions for when this policy is in effect(optional)
 ![image](https://github.com/cjiga/aws-certified-cloud-practitioner-new/assets/904293/0df9d0a7-3839-445a-8886-cc34c07b5aae)
+
+## How can users access AWS ?
+- To access AWS, you have three options:
+  - AWS Management Console (protected by password + MFA)
+  - AWS Command Line Interface (CLI): protected by access keys
+  - AWS Software Developer Kit (SDK) - for code: protected by access keys
+- Access Keys are generated through the AWS Console
+- Users manage their own access keys
+- Access Keys are secret, just like a password. Don’t share them
+- Access Key ID ~= username
+- Secret Access Key ~= password
