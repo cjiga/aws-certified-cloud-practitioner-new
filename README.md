@@ -100,3 +100,15 @@ AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model, which
 - These policies define the permissions of the users
 - In AWS you apply the least privilege principle: don’t give more permissions than a user needs 
 
+## IAM Policies Structure
+- Consists of
+  - Version: policy language version, always include “2012-10-17”
+  - Id: an identifier for the policy (optional) • Statement: one or more individual statements (required)
+- Statements consists of
+  - Sid: an identifier for the statement (optional)
+  - Effect: whether the statement allows or denies access(Allow, Deny)
+  - Principal: account/user/role to which this policy applied to
+  - Action: list of actions this policy allows or denies
+  - Resource: list of resources to which the actions applied to
+  - Condition: conditions for when this policy is in effect(optional)
+![image](https://github.com/cjiga/aws-certified-cloud-practitioner-new/assets/904293/0df9d0a7-3839-445a-8886-cc34c07b5aae)
