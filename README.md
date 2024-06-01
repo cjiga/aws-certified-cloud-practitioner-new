@@ -73,3 +73,30 @@ AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model, which
 ###AWS Data Centers
 ###AWS Edge Locations/Points of Presence
 
+## AWS Global Services
+- Identity and Access Management (IAM)
+- Route 53 (DNS service)
+- CloudFront (Content Delivery Network)
+- WAF (Web Application Firewall)
+
+## Shared Responsibility Model diagram
+- CUSTOMER = Resonsibility for the security **IN** the cloud
+- AWS - Resonsibility for the security **OF** the cloud
+
+## AWS Acceptable Use Policy
+- No Illegal, Harmful, or Offensive Use or Content
+- No Security Violations
+- No Network Abuse
+- No E-Mail or Other Message Abuse
+
+# IAM Section
+## IAM: Users & Groups
+- Users are people within your organization, and can be grouped
+- Groups only contain users, not other groups
+- Users don’t have to belong to a group, and user can belong to multiple groups
+
+## IAM: Permissions
+- Users or Groups can be assigned JSON documents called policies
+- These policies define the permissions of the users
+- In AWS you apply the least privilege principle: don’t give more permissions than a user needs 
+
