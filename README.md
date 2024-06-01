@@ -123,3 +123,6 @@ AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model, which
 - Access Keys are secret, just like a password. Don’t share them
 - Access Key ID ~= username
 - Secret Access Key ~= password
+
+# EC2 - Elastic Compute Cloud
+
