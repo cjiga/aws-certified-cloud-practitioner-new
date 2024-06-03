@@ -5,6 +5,7 @@
 **EC2**: Elastic Compute Cloud <br />
 **EBS**: Elastic Block Store <br />
 **AMI**: Amazon Machine Image <br />
+**EFS**: Elastic File System <br />
 **ELB**: Elastic Compute Cloud <br />
 **ASG**: Elastic Compute Cloud <br />
 
@@ -153,21 +154,126 @@ JSON document that outlines permissions for users or groups
 
 # EC2 - Elastic Compute Cloud
 - Instances: Virtual Servers
-- Amazon Machine Images: Preconfigured templates for your instances that package the components you need for your server.
 - Instance types: Various configurations of CPU, memory, storage, networking capacity, and graphics hardware for your instances.
 - Key pairs: Secure login information for your instances. AWS stores the public key and you store the private key in a secure place.
-- Instance store volumes: Storage volumes for temporary data that is deleted when you stop, hibernate, or terminate your instance.
-- Amazon EBS volumes: Persistent storage volumes for your data using Amazon Elastic Block Store (Amazon EBS).
 - Security groups: A virtual firewall that allows you to specify the protocols, ports, and source IP ranges that can reach your instances, and the destination IP ranges to which your instances can connect.
 - Tags: Metadata that you can create and assign to your Amazon EC2 resources.
 
+## EC2 - User Data
+- It is possible to bootstrap our instace using an EC2 User data script.
+- Boostrapping means launching commands when a machine starts.
+- That script is only run once at the instance first start.
+- The EC2 User Data Script runs with the root user
+
+## EC2 - Instance Type
+- **General purpose**: Great for diversity of workloads such as web servers or code repositories
+- **Compute optimized**: Great for compute-intesive task that require high performance processors
+- **Memory optimized**: Fast performance for workloads that process large data sets in memory
+- **Accelerate computing**:
+- **Storage optimized**: Great for storage-intensive tasks that require high, sequential read and write access to large data sets on local storage
+- **HPC optimized**:
+
+## EC2 - Instance Type naming convention
+![image](https://github.com/cjiga/aws-certified-cloud-practitioner-new/assets/904293/118dc449-3d8c-4480-a7e9-39cdd72a6e7e)
+
+
+## EC2 - Security Groups
+- Security groups are acting as a “firewall” on EC2 instances
+- If you don't specify a security group, Amazon EC2 uses the default security group for the VPC.
+- They regulate:
+  - Access to Ports
+  - Authorised IP ranges
+  - IPv4 and IPv6
+  - Control of inbound network (from other to the instance)
+  - Control of outbound network (from the instance to other)
+![image](https://github.com/cjiga/aws-certified-cloud-practitioner-new/assets/904293/cad78c8f-ea1f-42f4-a0eb-193e45a66249)
+
+## Classic Ports to know
+- 22 = SSH (Secure Shell) - log into a Linux instance
+- 21 = FTP (File Transfer Protocol) – upload files into a file share
+- 22 = SFTP (Secure File Transfer Protocol) – upload files using SSH
+- 80 = HTTP – access unsecured websites
+- 443 = HTTPS – access secured websites
+- 3389 = RDP (Remote Desktop Protocol) – log into a Windows instance
+
 ## EC2 Instances Purchasing Options
 - On-Demand Instances – short workload, predictable pricing, pay by second
-  - Reserved (1 & 3 years)
+- Reserved (1 & 3 years)
   - Reserved Instances – long workloads
-- Convertible Reserved Instances – long workloads with flexible instances
+  - Convertible Reserved Instances – long workloads with flexible instances
 - Savings Plans (1 & 3 years) –commitment to an amount of usage, long workload
 - Spot Instances – short workloads, cheap, can lose instances (less reliable)
 - Dedicated Hosts – book an entire physical server, control instance placement
 - Dedicated Instances – no other customers will share your hardware
 - Capacity Reservations – reserve capacity in a specific AZ for any duration
+
+## Which purchasing option is right for me?
+- On demand: coming and staying in resort whenever we like, we pay the full price
+- Reserved: like planning ahead and if we plan to stay for a long time, we may get a good discount.
+- Savings Plans: pay a certain amount per hour for certain period and stay in any room type (e.g.,King, Suite, Sea View, …)
+- Spot instances: the hotel allows people to bid for the empty rooms and the highest bidder keeps therooms. You can get kicked out at any time
+- Dedicated Hosts: We book an entire building of the resort
+- Capacity Reservations: you book a room for a period with full price even you don’t stay in it
+
+## Metadata
+- Instance metadata is data about your instance that you can use to configure or manage the running instance. 
+- Metadata is divided into categories, for example, host name, events, and security groups.
+
+# EC2 - Instance Storage Section
+- Amazon EBS volumes: Persistent storage volumes for your data using Amazon Elastic Block Store (Amazon EBS).
+- Amazon Machine Images: Preconfigured templates for your instances that package the components you need for your server.
+- Instance store volumes: Storage volumes for temporary data that is deleted when you stop, hibernate, or terminate your instance.
+
+## EBS Volume
+- It’s a network drive (i.e. not a physical drive)
+  - It uses the network to communicate the instance, which means there might be a bit of latency
+  - It can be detached from an EC2 instance and attached to another one quickly
+- It’s locked to an Availability Zone (AZ)
+  - An EBS Volume in us-east-1a cannot be attached to us-east-1b
+  - To move a volume across, you first need to snapshot it
+- Have a provisioned capacity (size in GBs, and IOPS)
+  - You get billed for all the provisioned capacity
+  - You can increase the capacity of the drive over time
+ 
+## EBS Snapshots
+- Make a backup (snapshot) of your EBS volume at a point in time
+- Not necessary to detach volume to do snapshot, but recommended
+- Can copy snapshots across AZ or Region
+
+## AMI Overview
+- AMI are a customization of an EC2 instance
+  - You add your own software, configuration, operating system, monitoring…
+  - Faster boot / configuration time because all your software is pre-packaged
+- AMI are built for a specific region (and can be copied across regions)
+- You can launch EC2 instances from:
+  - A Public AMI: AWS provided
+  - Your own AMI: you make and maintain them yourself
+  - An AWS Marketplace AMI: an AMI someone else made (and potentially sells)
+![image](https://github.com/cjiga/aws-certified-cloud-practitioner-new/assets/904293/9c324ddb-3cbf-41d4-8e31-fb707a5f9bf5)
+
+## EC2 Image Builder
+- Used to automate the creation of Virtual Machines or container images
+- => Automate the creation, maintain, validate and test EC2 AMIs
+- Can be run on a schedule (weekly, whenever packages are updated, etc…)
+- Free service (only pay for the underlying resources)
+![image](https://github.com/cjiga/aws-certified-cloud-practitioner-new/assets/904293/b36c14de-0b30-4d21-b8b3-993d0c443648)
+
+## EC2 Instance Store
+- EBS volumes are network drives with good but “limited” performance
+- If you need a high-performance hardware disk, use EC2 Instance Store
+- Better I/O performance
+- EC2 Instance Store lose their storage if they’re stopped (ephemeral)
+- Good for buffer / cache / scratch data / temporary content
+- Risk of data loss if hardware fails
+- Backups and Replication are your responsibility
+
+## EFS – Elastic File System
+- Manage NFS (Netword File System) that can be mounted on 100s of EC2
+- EFS works with Linux EC2 instances in multi-AZ
+- Highly available, scalable, expensive (3x gp2), pay per use, no capacity planning
+![image](https://github.com/cjiga/aws-certified-cloud-practitioner-new/assets/904293/eb00c5a2-ea22-4d33-9075-3f0d0c632718)
+
+## EBS vs EFS
+![image](https://github.com/cjiga/aws-certified-cloud-practitioner-new/assets/904293/56f2acb3-0957-4d74-a2c9-3e8648fb5a09)
+
+
