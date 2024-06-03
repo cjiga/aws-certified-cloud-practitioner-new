@@ -10,6 +10,7 @@
 **ASG**: Auto Scaling Groups <br />
 **EMR**: Elastic MapReduce <br />
 **DMS**: Database Migration Service <br />
+**ECS**: Elastic Container Service <br />
 
 ## The five characteristics of Cloud Computing
 - **On-demand selft service:**
@@ -400,3 +401,8 @@ Load balancers are servers that forward internet traffic to multiple servers (EC
 - Aurora storage automatically grows in increments of 10GB, up to 128 TB
 - Aurora costs more than RDS (20% more) – but is more efficient
 - Not in the free tier
+
+------------------
+
+# Other Compute Services: ECS, Lambda, Batch, Lightsail
+
