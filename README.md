@@ -6,8 +6,8 @@
 **EBS**: Elastic Block Store <br />
 **AMI**: Amazon Machine Image <br />
 **EFS**: Elastic File System <br />
-**ELB**: Elastic Compute Cloud <br />
-**ASG**: Elastic Compute Cloud <br />
+**ELB**: Elastic Load Balancing <br />
+**ASG**: Auto Scaling Groups <br />
 
 
 ## The five characteristics of Cloud Computing
@@ -100,6 +100,8 @@ AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model, which
 - No Network Abuse
 - No E-Mail or Other Message Abuse
 
+------------------
+
 # IAM Section
 ## IAM: Users & Groups
 - Users are people within your organization, and can be grouped
@@ -152,6 +154,8 @@ JSON document that outlines permissions for users or groups
 - IAM Credentials Report (account-level)
 - IAM Access Advisor (user-level)
 
+------------------
+
 # EC2 - Elastic Compute Cloud
 - Instances: Virtual Servers
 - Instance types: Various configurations of CPU, memory, storage, networking capacity, and graphics hardware for your instances.
@@ -175,7 +179,6 @@ JSON document that outlines permissions for users or groups
 
 ## EC2 - Instance Type naming convention
 ![image](https://github.com/cjiga/aws-certified-cloud-practitioner-new/assets/904293/118dc449-3d8c-4480-a7e9-39cdd72a6e7e)
-
 
 ## EC2 - Security Groups
 - Security groups are acting as a “firewall” on EC2 instances
@@ -218,6 +221,8 @@ JSON document that outlines permissions for users or groups
 ## Metadata
 - Instance metadata is data about your instance that you can use to configure or manage the running instance. 
 - Metadata is divided into categories, for example, host name, events, and security groups.
+
+------------------
 
 # EC2 - Instance Storage Section
 - Amazon EBS volumes: Persistent storage volumes for your data using Amazon Elastic Block Store (Amazon EBS).
@@ -276,4 +281,7 @@ JSON document that outlines permissions for users or groups
 ## EBS vs EFS
 ![image](https://github.com/cjiga/aws-certified-cloud-practitioner-new/assets/904293/56f2acb3-0957-4d74-a2c9-3e8648fb5a09)
 
+------------------
+
+# Elastic Load Balancing & Auto Scaling Groups Section
 
