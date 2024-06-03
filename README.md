@@ -1,4 +1,14 @@
 # aws-certified-cloud-practitioner-new
+
+## AWS Glossary: Acronym & Terminology
+**IAM**: Identity and Access Managment <br />
+**EC2**: Elastic Compute Cloud <br />
+**EBS**: Elastic Block Store <br />
+**AMI**: Amazon Machine Image <br />
+**ELB**: Elastic Compute Cloud <br />
+**ASG**: Elastic Compute Cloud <br />
+
+
 ## The five characteristics of Cloud Computing
 - **On-demand selft service:**
   - User can provision resources and use them without human interaction from the service provider
@@ -34,12 +44,12 @@
 - **Agilibility:** rapidly develop, test and launch software applications
 
 ## The five characteristics of Cloud Computing
-- **Infrastructure as a Services (IaaS)** - Amazon EC2
+- **Infrastructure as a Services (IaaS)** - Amazon EC2 (Applications, Data, Runtime, Middleware, O/S)
   - Provide building blocks for cloud IT
   - Provides networking, computers, data storage space
   - Highest level of flexibility
   - Easy parallel with traditional on-premises IT
-- **Platform as a Services (PaaS)** - Elastic Beanstalk
+- **Platform as a Services (PaaS)** - Elastic Beanstalk (Applications)
   - Removes the need for your organization to manage the underlying infrastructure
   - Focus on the deployment and management of your applications
 - **Software as a Service (SaaS)** - Many AWS Services (ex: Rekognition for Machine Lerning)
@@ -101,6 +111,8 @@ AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model, which
 - In AWS you apply the least privilege principle: don’t give more permissions than a user needs 
 
 ## IAM Policies Structure
+JSON document that outlines permissions for users or groups
+
 - Consists of
   - Version: policy language version, always include “2012-10-17”
   - Id: an identifier for the policy (optional) • Statement: one or more individual statements (required)
@@ -113,6 +125,11 @@ AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model, which
   - Condition: conditions for when this policy is in effect(optional)
 ![image](https://github.com/cjiga/aws-certified-cloud-practitioner-new/assets/904293/0df9d0a7-3839-445a-8886-cc34c07b5aae)
 
+## MFA deveces options in AWS
+- Virtual MFA device
+- Universal 2nd Factor (U2F) Security Key
+- Hardware Key Fob MFA Device
+
 ## How can users access AWS ?
 - To access AWS, you have three options:
   - AWS Management Console (protected by password + MFA)
@@ -124,7 +141,26 @@ AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model, which
 - Access Key ID ~= username
 - Secret Access Key ~= password
 
+## IAM Rols for Services
+- Some AWS services will need to perform  action on your behalf
+- To do so, we will assign permission to AWS services with IAM roles
+- When you assume a role, it provides you with temporary security credentials for your role session.
+- You can use roles to delete access to users, applications or services that don't normally have access to your AWS resources
+
+## IAM Security Tools
+- IAM Credentials Report (account-level)
+- IAM Access Advisor (user-level)
+
 # EC2 - Elastic Compute Cloud
+- Instances: Virtual Servers
+- Amazon Machine Images: Preconfigured templates for your instances that package the components you need for your server.
+- Instance types: Various configurations of CPU, memory, storage, networking capacity, and graphics hardware for your instances.
+- Key pairs: Secure login information for your instances. AWS stores the public key and you store the private key in a secure place.
+- Instance store volumes: Storage volumes for temporary data that is deleted when you stop, hibernate, or terminate your instance.
+- Amazon EBS volumes: Persistent storage volumes for your data using Amazon Elastic Block Store (Amazon EBS).
+- Security groups: A virtual firewall that allows you to specify the protocols, ports, and source IP ranges that can reach your instances, and the destination IP ranges to which your instances can connect.
+- Tags: Metadata that you can create and assign to your Amazon EC2 resources.
+
 ## EC2 Instances Purchasing Options
 - On-Demand Instances – short workload, predictable pricing, pay by second
   - Reserved (1 & 3 years)
