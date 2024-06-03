@@ -8,7 +8,7 @@
 **EFS**: Elastic File System <br />
 **ELB**: Elastic Load Balancing <br />
 **ASG**: Auto Scaling Groups <br />
-
+**EMR**: Elastic MapReduce <br />
 
 ## The five characteristics of Cloud Computing
 - **On-demand selft service:**
